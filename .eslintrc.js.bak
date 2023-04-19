@@ -1,4 +1,5 @@
-module.exports = {
+// module.exports = {
+const babel_config = {
   env: {
     browser: false,
     es6: true,
@@ -33,3 +34,5 @@ module.exports = {
     }
   ]
 };
+
+export default babel_config;

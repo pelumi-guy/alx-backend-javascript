@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir $1
+cp -r package.json package-lock.json .eslintrc.cjs babel.config.js node_modules $1
+touch $1/README.md
+
