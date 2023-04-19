@@ -1,11 +1,13 @@
-import { uploadPhoto, createUser } from './utils.js';
+/* eslint-disable no-console */
 
-export default async function handleProfileSignup() {
-  const errorLog = () => console.log('Signup system offline')
-  const photo = await uploadPhoto().then((res) => res.body).catch(() => errorLog());
-  const user = await createUser()
-    .then((res) => ({ firstName: res.firstName, lastName: res.lastName }))
-    .catch(() => errorLog());
+import { uploadPhoto, createUser } from './utils';
 
-  console.log(photo, user.firstName, user.lastName);
+export default function handleProfileSignup() {
+  const photo = uploadPhoto();
+  const user = createUser();
+
+  return Promise.all([photo, user]).then((res) => {
+    console.log(`${res[0].body} ${res[1].firstName} ${res[1].lastName}`);
+  })
+    .catch(() => { console.log('Signup system offline'); });
 }
