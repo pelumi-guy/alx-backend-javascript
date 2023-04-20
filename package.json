@@ -18,9 +18,9 @@
   "author": "Pelumi-guy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pelumi-guy/alx-backend-javascript/issues"
+    "url": "https://140.82.121.4/pelumi-guy/alx-backend-javascript/issues"
   },
-  "homepage": "https://github.com/pelumi-guy/alx-backend-javascript#readme",
+  "homepage": "https://140.82.121.4/pelumi-guy/alx-backend-javascript#readme",
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.8.0",
