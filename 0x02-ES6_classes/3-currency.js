@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 export default class Currency {
   constructor(code, name) {
     this._code = code;
@@ -23,6 +25,6 @@ export default class Currency {
   }
 
   displayFullCurrency() {
-    return `${this._name} (${this._code})`
+    return `${this._name} (${this._code})`;
   }
 }
