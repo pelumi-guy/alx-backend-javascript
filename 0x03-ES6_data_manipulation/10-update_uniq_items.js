@@ -1,14 +1,15 @@
-const updateUniqueItems = (map) => {
+/* eslint-disable no-param-reassign */
 
-    if (!(map instanceof Map)) {
-        throw Error('Cannot process');
-    }
-
+export default function updateUniqueItems(map) {
+  if (map instanceof Map) {
     for (const [key, value] of map) {
-        if (value === 1) {
-            map.set(key, 100);
-        }
+      if (value === 1) {
+        map.set(key, 100);
+      }
     }
-}
 
-export default updateUniqueItems;
+    return map;
+  }
+
+  throw new Error('Cannot process');
+}
