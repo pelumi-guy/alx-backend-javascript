@@ -1,20 +1,10 @@
-const cleanSet = (set, startString) => {
-
-    const startIdx = startString.length;
-    let result = ''
-
-    for (const item of set){
-        if (item.startsWith(startString) && startString !== '')
-        {
-            if (result){
-                result += `-${item.slice(startIdx)}`;
-            } else {
-                result += item.slice(startIdx);
-            }
-        }
+/* eslint-disable array-callback-return */
+export default function cleanSet(set, string) {
+    if (string === undefined || string.length === 0) {
+      return '';
     }
-
-    return result;
-}
-
-export default cleanSet;
+    return [...set]
+      .filter((str) => (str !== undefined ? str.startsWith(string) : ''))
+      .map((str) => (str !== undefined ? str.slice(string.length) : ''))
+      .join('-');
+  }
