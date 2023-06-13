@@ -39,6 +39,6 @@ const countStudents = (fileName) => {
       }
     });
   });
-}
+};
 
 module.exports = countStudents;
