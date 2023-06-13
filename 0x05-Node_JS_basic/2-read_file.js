@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-function countStudents(fileName) {
+const countStudents = (fileName) => {
   const students = {};
   const fields = {};
   let length = 0;
