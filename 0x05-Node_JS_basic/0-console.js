@@ -1,5 +1,5 @@
 // 0. Executing basic javascript with Node JS
 
-module.exports = function displayMessage(arg) {
-    console.log(arg);
-}
+module.exports = function displayMessage (arg) {
+  console.log(arg);
+};
