@@ -5,7 +5,7 @@ const { expect } = require('chai');
 
 describe('Payment System API', () => {
   const baseUrl = 'http://localhost:7865';
-  const num = Math.ceil(Math.random() * 100);
+  const id = Math.ceil(Math.random() * 100);
 
    // Test for correct status code
    it('Should return status code 200', (done) => {
@@ -25,7 +25,7 @@ describe('Payment System API', () => {
 
   // Test for correct correct status code when :id is a number
   it('Should test for correct status code when :id is a number', (done) => {
-    request.get(baseUrl + `/cart/${num}`, (error, response) => {
+    request.get(baseUrl + `/cart/${id}`, (error, response) => {
       expect(response.statusCode).to.equal(200);
       done();
     });
@@ -37,6 +37,15 @@ describe('Payment System API', () => {
       expect(response.statusCode).to.equal(404);
       done();
     });
+  });
+
+  // Test for correct result when :id is a number
+  it('Should return "Payment methods for cart :id"', (done) => {
+      request.get(baseUrl + `/cart/${id}`, (error, response, body) => {
+        expect(body).to.equal(`Payment methods for cart ${id}`);
+        done();
+      });
+
   });
 
   // Additional test cases
