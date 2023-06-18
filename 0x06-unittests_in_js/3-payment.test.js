@@ -1,7 +1,6 @@
 // 3. Spies
 
 const { expect } = require('chai');
-const { it, describe } = require('mocha');
 const sinon = require('sinon');
 
 const Utils = require('./utils.js');

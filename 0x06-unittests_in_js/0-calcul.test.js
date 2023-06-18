@@ -1,6 +1,5 @@
 // 0. Basic test with Mocha and Node assertion library
 const calculateNumber = require('./0-calcul.js');
-const { it, describe } = require('mocha');
 const assert = require('assert');
 
 describe('calculateNumber', () => {
