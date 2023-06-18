@@ -7,7 +7,7 @@ describe('Payment System API', () => {
   const baseUrl = 'http://localhost:7865';
 
   // Test for correct status code
-  it('should return status code 200', (done) => {
+  it('Should return status code 200', (done) => {
     request.get(baseUrl, (error, response) => {
       expect(response.statusCode).to.equal(200);
       done();
@@ -15,7 +15,7 @@ describe('Payment System API', () => {
   });
 
   // Test for correct result
-  it('should return "Welcome to the payment system"', (done) => {
+  it('Should return "Welcome to the payment system"', (done) => {
     request.get(baseUrl, (error, response, body) => {
       expect(body).to.equal('Welcome to the payment system');
       done();
@@ -23,14 +23,14 @@ describe('Payment System API', () => {
   });
 
   // Additional test cases
-  it('should have specific headers', (done) => {
+  it('Should have specific headers', (done) => {
     request.get(baseUrl, (error, response) => {
       expect(response.headers['content-type']).to.equal('text/html; charset=utf-8');
       done();
     });
   });
 
-  it('should handle non-existent routes', (done) => {
+  it('Should handle non-existent routes', (done) => {
     request.get(baseUrl + '/nonexistent', (error, response) => {
       expect(response.statusCode).to.equal(404);
       done();
