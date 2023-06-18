@@ -4,12 +4,28 @@ const request = require('request');
 const { expect } = require('chai');
 
 describe('Payment System API', () => {
-  const baseUrl = 'http://localhost:7865/cart';
-  const num = Math.ceil(Math.random() * 100)
+  const baseUrl = 'http://localhost:7865';
+  const num = Math.ceil(Math.random() * 100);
+
+   // Test for correct status code
+   it('Should return status code 200', (done) => {
+    request.get(baseUrl, (error, response) => {
+      expect(response.statusCode).to.equal(200);
+      done();
+    });
+  });
+
+  // Test for correct result
+  it('Should return "Welcome to the payment system"', (done) => {
+    request.get(baseUrl, (error, response, body) => {
+      expect(body).to.equal('Welcome to the payment system');
+      done();
+    });
+  });
 
   // Test for correct correct status code when :id is a number
   it('Should test for correct status code when :id is a number', (done) => {
-    request.get(baseUrl + `/${num}`, (error, response) => {
+    request.get(baseUrl + `/cart/${num}`, (error, response) => {
       expect(response.statusCode).to.equal(200);
       done();
     });
@@ -17,7 +33,7 @@ describe('Payment System API', () => {
 
   // Test for correct correct status code when :id is NOT a number (=> 404)
   it('Should test for correct status code when :id is not a number', (done) => {
-    request.get(baseUrl + 'notanumber', (error, response, body) => {
+    request.get(baseUrl + '/cart/notanumber', (error, response, body) => {
       expect(response.statusCode).to.equal(404);
       done();
     });
